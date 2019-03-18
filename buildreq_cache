@@ -3,6 +3,7 @@ R-DBI
 R-Rcpp
 R-classInt
 R-dplyr
+R-e1071
 R-rgeos
 R-sp
 R-units

@@ -4,24 +4,19 @@
 #
 Name     : R-sf
 Version  : 0.7.3
-Release  : 5
+Release  : 6
 URL      : https://cran.r-project.org/src/contrib/sf_0.7-3.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/sf_0.7-3.tar.gz
 Summary  : Simple Features for R
 Group    : Development/Tools
 License  : GPL-2.0 MIT
 Requires: R-sf-lib = %{version}-%{release}
-Requires: R-DBI
-Requires: R-Rcpp
-Requires: R-classInt
-Requires: R-dplyr
-Requires: R-rgeos
-Requires: R-sp
-Requires: R-units
+Requires: R-e1071
 BuildRequires : R-DBI
 BuildRequires : R-Rcpp
 BuildRequires : R-classInt
 BuildRequires : R-dplyr
+BuildRequires : R-e1071
 BuildRequires : R-rgeos
 BuildRequires : R-sp
 BuildRequires : R-units
@@ -51,10 +46,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1551647263
+export SOURCE_DATE_EPOCH=1552945530
 
 %install
-export SOURCE_DATE_EPOCH=1551647263
+export SOURCE_DATE_EPOCH=1552945530
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -84,15 +79,6 @@ echo "CXXFLAGS = $CXXFLAGS -ftree-vectorize " >> ~/.R/Makevars
 R CMD INSTALL --preclean --install-tests --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l %{buildroot}/usr/lib64/R/library sf
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
-%check
-export LANG=C
-export http_proxy=http://127.0.0.1:9/
-export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost,127.0.0.1,0.0.0.0
-export _R_CHECK_FORCE_SUGGESTS_=false
-R CMD check --no-manual --no-examples --no-codoc -l %{buildroot}/usr/lib64/R/library sf|| : 
-cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
-
 
 %files
 %defattr(-,root,root,-)
@@ -163,7 +149,6 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/sf/html/R.css
 /usr/lib64/R/library/sf/include/sf.h
 /usr/lib64/R/library/sf/include/sf_RcppExports.h
-/usr/lib64/R/library/sf/libs/symbols.rds
 /usr/lib64/R/library/sf/nc/cropped.nc
 /usr/lib64/R/library/sf/osm/overpass.osm
 /usr/lib64/R/library/sf/shape/nc.dbf
@@ -190,10 +175,74 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 /usr/lib64/R/library/sf/sqlite/meuse.sqlite
 /usr/lib64/R/library/sf/sqlite/nc.sqlite
 /usr/lib64/R/library/sf/sqlite/test3.sqlite
+/usr/lib64/R/library/sf/tests/aggregate.R
+/usr/lib64/R/library/sf/tests/aggregate.Rout.save
+/usr/lib64/R/library/sf/tests/bgmap.rda
+/usr/lib64/R/library/sf/tests/cast.R
+/usr/lib64/R/library/sf/tests/cast.Rout.save
+/usr/lib64/R/library/sf/tests/crs.R
+/usr/lib64/R/library/sf/tests/crs.Rout.save
+/usr/lib64/R/library/sf/tests/dist.R
+/usr/lib64/R/library/sf/tests/dist.Rout.save
+/usr/lib64/R/library/sf/tests/dplyr.R
+/usr/lib64/R/library/sf/tests/dplyr.Rout.save
+/usr/lib64/R/library/sf/tests/empty.R
+/usr/lib64/R/library/sf/tests/empty.Rout.save
+/usr/lib64/R/library/sf/tests/gdal_geom.R
+/usr/lib64/R/library/sf/tests/gdal_geom.Rout.save
+/usr/lib64/R/library/sf/tests/geos.R
+/usr/lib64/R/library/sf/tests/geos.Rout.save
+/usr/lib64/R/library/sf/tests/graticule.R
+/usr/lib64/R/library/sf/tests/graticule.Rout.save
+/usr/lib64/R/library/sf/tests/grid.R
+/usr/lib64/R/library/sf/tests/grid.Rout.save
+/usr/lib64/R/library/sf/tests/plot.R
+/usr/lib64/R/library/sf/tests/plot.Rout.save
+/usr/lib64/R/library/sf/tests/read.R
+/usr/lib64/R/library/sf/tests/read.Rout.save
+/usr/lib64/R/library/sf/tests/roundtrip.R
+/usr/lib64/R/library/sf/tests/roundtrip.Rout.save
+/usr/lib64/R/library/sf/tests/sfc.R
+/usr/lib64/R/library/sf/tests/sfc.Rout.save
+/usr/lib64/R/library/sf/tests/sfg.R
+/usr/lib64/R/library/sf/tests/sfg.Rout.save
+/usr/lib64/R/library/sf/tests/stars.R
+/usr/lib64/R/library/sf/tests/stars.Rout.save
+/usr/lib64/R/library/sf/tests/testthat.R
+/usr/lib64/R/library/sf/tests/testthat.Rout.save
+/usr/lib64/R/library/sf/tests/testthat/deprecated-db.R
+/usr/lib64/R/library/sf/tests/testthat/test-grid.R
+/usr/lib64/R/library/sf/tests/testthat/test-normalize.R
+/usr/lib64/R/library/sf/tests/testthat/test_bbox.R
+/usr/lib64/R/library/sf/tests/testthat/test_collection_extract.R
+/usr/lib64/R/library/sf/tests/testthat/test_crs.R
+/usr/lib64/R/library/sf/tests/testthat/test_deprecated-db.R
+/usr/lib64/R/library/sf/tests/testthat/test_gdal.R
+/usr/lib64/R/library/sf/tests/testthat/test_geos.R
+/usr/lib64/R/library/sf/tests/testthat/test_plot.R
+/usr/lib64/R/library/sf/tests/testthat/test_postgis_ODBC.R
+/usr/lib64/R/library/sf/tests/testthat/test_postgis_RPostgreSQL.R
+/usr/lib64/R/library/sf/tests/testthat/test_postgis_RPostgres.R
+/usr/lib64/R/library/sf/tests/testthat/test_read.R
+/usr/lib64/R/library/sf/tests/testthat/test_sample.R
+/usr/lib64/R/library/sf/tests/testthat/test_sf.R
+/usr/lib64/R/library/sf/tests/testthat/test_sfc.R
+/usr/lib64/R/library/sf/tests/testthat/test_sfg.R
+/usr/lib64/R/library/sf/tests/testthat/test_sp.R
+/usr/lib64/R/library/sf/tests/testthat/test_st_cast.R
+/usr/lib64/R/library/sf/tests/testthat/test_tidy.R
+/usr/lib64/R/library/sf/tests/testthat/test_tm.R
+/usr/lib64/R/library/sf/tests/testthat/test_wkb.R
+/usr/lib64/R/library/sf/tests/testthat/test_wkt.R
+/usr/lib64/R/library/sf/tests/testthat/test_write.R
+/usr/lib64/R/library/sf/tests/units.R
+/usr/lib64/R/library/sf/tests/units.Rout.save
+/usr/lib64/R/library/sf/tests/wkb.R
+/usr/lib64/R/library/sf/tests/wkb.Rout.save
+/usr/lib64/R/library/sf/tests/zzz.R
+/usr/lib64/R/library/sf/tests/zzz.Rout.save
 /usr/lib64/R/library/sf/tif/geomatrix.tif
 
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/R/library/sf/libs/sf.so
-/usr/lib64/R/library/sf/libs/sf.so.avx2
-/usr/lib64/R/library/sf/libs/sf.so.avx512
