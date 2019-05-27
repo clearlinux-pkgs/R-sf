@@ -4,20 +4,20 @@
 #
 Name     : R-sf
 Version  : 0.7.4
-Release  : 9
+Release  : 10
 URL      : https://cran.r-project.org/src/contrib/sf_0.7-4.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/sf_0.7-4.tar.gz
 Summary  : Simple Features for R
 Group    : Development/Tools
 License  : GPL-2.0 MIT
 Requires: R-sf-lib = %{version}-%{release}
-Requires: R-DBI
-Requires: R-Rcpp
-Requires: R-classInt
-Requires: R-units
 BuildRequires : R-DBI
 BuildRequires : R-Rcpp
 BuildRequires : R-classInt
+BuildRequires : R-dplyr
+BuildRequires : R-e1071
+BuildRequires : R-rgeos
+BuildRequires : R-sp
 BuildRequires : R-units
 BuildRequires : buildreq-R
 BuildRequires : gdal-dev
@@ -45,10 +45,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1556295791
+export SOURCE_DATE_EPOCH=1558942413
 
 %install
-export SOURCE_DATE_EPOCH=1556295791
+export SOURCE_DATE_EPOCH=1558942413
 rm -rf %{buildroot}
 export LANG=C
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
