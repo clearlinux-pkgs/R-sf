@@ -4,20 +4,22 @@
 #
 Name     : R-sf
 Version  : 0.7.4
-Release  : 11
+Release  : 12
 URL      : https://cran.r-project.org/src/contrib/sf_0.7-4.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/sf_0.7-4.tar.gz
 Summary  : Simple Features for R
 Group    : Development/Tools
 License  : GPL-2.0 MIT
 Requires: R-sf-lib = %{version}-%{release}
+Requires: R-DBI
+Requires: R-Rcpp
+Requires: R-classInt
+Requires: R-magrittr
+Requires: R-units
 BuildRequires : R-DBI
 BuildRequires : R-Rcpp
 BuildRequires : R-classInt
-BuildRequires : R-dplyr
-BuildRequires : R-e1071
-BuildRequires : R-rgeos
-BuildRequires : R-sp
+BuildRequires : R-magrittr
 BuildRequires : R-units
 BuildRequires : buildreq-R
 BuildRequires : gdal-dev
@@ -44,13 +46,13 @@ lib components for the R-sf package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1558942413
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1562213615
 
 %install
-export SOURCE_DATE_EPOCH=1558942413
+export SOURCE_DATE_EPOCH=1562213615
 rm -rf %{buildroot}
-export LANG=C
+export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FCFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
 export FFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "

@@ -1,10 +1,2 @@
 0.7.4
-R-DBI
-R-Rcpp
-R-classInt
-R-dplyr
-R-e1071
-R-rgeos
-R-sp
-R-units
 gdal-dev
