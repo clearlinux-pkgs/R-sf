@@ -4,7 +4,7 @@
 #
 Name     : R-sf
 Version  : 0.9.3
-Release  : 26
+Release  : 27
 URL      : https://cran.r-project.org/src/contrib/sf_0.9-3.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/sf_0.9-3.tar.gz
 Summary  : Simple Features for R
@@ -49,10 +49,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1588631639
+export SOURCE_DATE_EPOCH=1588980201
 
 %install
-export SOURCE_DATE_EPOCH=1588631639
+export SOURCE_DATE_EPOCH=1588980201
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
