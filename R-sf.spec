@@ -4,7 +4,7 @@
 #
 Name     : R-sf
 Version  : 0.9.6
-Release  : 32
+Release  : 33
 URL      : https://cran.r-project.org/src/contrib/sf_0.9-6.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/sf_0.9-6.tar.gz
 Summary  : Simple Features for R
