@@ -1,4 +1,5 @@
 # This file contains recursive sources that require this package
+R-epiR
 R-lwgeom
 R-protolite
 R-spdep
