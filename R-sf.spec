@@ -4,7 +4,7 @@
 #
 Name     : R-sf
 Version  : 1.0.5
-Release  : 52
+Release  : 53
 URL      : https://cran.r-project.org/src/contrib/sf_1.0-5.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/sf_1.0-5.tar.gz
 Summary  : Simple Features for R
@@ -52,10 +52,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1639764030
+export SOURCE_DATE_EPOCH=1641122249
 
 %install
-export SOURCE_DATE_EPOCH=1639764030
+export SOURCE_DATE_EPOCH=1641122249
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -272,3 +272,5 @@ cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %files lib
 %defattr(-,root,root,-)
 /usr/lib64/R/library/sf/libs/sf.so
+/usr/lib64/R/library/sf/libs/sf.so.avx2
+/usr/lib64/R/library/sf/libs/sf.so.avx512
