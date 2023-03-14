@@ -4,7 +4,7 @@
 #
 Name     : R-sf
 Version  : 1.0.10
-Release  : 64
+Release  : 65
 URL      : https://cran.r-project.org/src/contrib/sf_1.0-10.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/sf_1.0-10.tar.gz
 Summary  : Simple Features for R
@@ -28,9 +28,6 @@ BuildRequires : gdal-dev
 BuildRequires : geos-dev
 BuildRequires : pkgconfig(sqlite3)
 BuildRequires : proj-dev
-# Suppress stripping binaries
-%define __strip /bin/true
-%define debug_package %{nil}
 
 %description
 encode spatial vector data. Binds to 'GDAL' for reading and writing
@@ -55,10 +52,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1678726257
+export SOURCE_DATE_EPOCH=1678833052
 
 %install
-export SOURCE_DATE_EPOCH=1678726257
+export SOURCE_DATE_EPOCH=1678833052
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
