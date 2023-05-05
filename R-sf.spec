@@ -5,7 +5,7 @@
 #
 Name     : R-sf
 Version  : 1.0.12
-Release  : 69
+Release  : 70
 URL      : https://cran.r-project.org/src/contrib/sf_1.0-12.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/sf_1.0-12.tar.gz
 Summary  : Simple Features for R
@@ -46,17 +46,19 @@ lib components for the R-sf package.
 
 %prep
 %setup -q -n sf
-cd %{_builddir}/sf
+pushd ..
+cp -a sf buildavx2
+popd
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1679332654
+export SOURCE_DATE_EPOCH=1683316760
 
 %install
-export SOURCE_DATE_EPOCH=1679332654
+export SOURCE_DATE_EPOCH=1683316760
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
@@ -86,6 +88,7 @@ echo "CXXFLAGS = $CXXFLAGS -ftree-vectorize " >> ~/.R/Makevars
 R CMD INSTALL --preclean --use-LTO --install-tests --data-compress=none --compress=none --built-timestamp=${SOURCE_DATE_EPOCH} --build  -l %{buildroot}/usr/lib64/R/library .
 cp ~/.stash/* %{buildroot}/usr/lib64/R/library/*/libs/ || :
 %{__rm} -rf %{buildroot}%{_datadir}/R/library/R.css
+/usr/bin/elf-move.py avx2 %{buildroot}-v3 %{buildroot} %{buildroot}/usr/share/clear/filemap/filemap-%{name}
 
 %files
 %defattr(-,root,root,-)
