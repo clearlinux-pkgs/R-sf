@@ -4,10 +4,10 @@
 # Using build pattern: R
 #
 Name     : R-sf
-Version  : 1.0.13
-Release  : 79
-URL      : https://cran.r-project.org/src/contrib/sf_1.0-13.tar.gz
-Source0  : https://cran.r-project.org/src/contrib/sf_1.0-13.tar.gz
+Version  : 1.0.14
+Release  : 80
+URL      : https://cran.r-project.org/src/contrib/sf_1.0-14.tar.gz
+Source0  : https://cran.r-project.org/src/contrib/sf_1.0-14.tar.gz
 Summary  : Simple Features for R
 Group    : Development/Tools
 License  : GPL-2.0 MIT
@@ -55,10 +55,10 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1686953281
+export SOURCE_DATE_EPOCH=1689092262
 
 %install
-export SOURCE_DATE_EPOCH=1686953281
+export SOURCE_DATE_EPOCH=1689092262
 rm -rf %{buildroot}
 export LANG=C.UTF-8
 export CFLAGS="$CFLAGS -O3 -flto -fno-semantic-interposition "
