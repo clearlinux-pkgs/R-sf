@@ -5,7 +5,7 @@
 #
 Name     : R-sf
 Version  : 1.0.14
-Release  : 83
+Release  : 84
 URL      : https://cran.r-project.org/src/contrib/sf_1.0-14.tar.gz
 Source0  : https://cran.r-project.org/src/contrib/sf_1.0-14.tar.gz
 Summary  : Simple Features for R
