@@ -7,7 +7,7 @@
 #
 Name     : R-sf
 Version  : 1.0.19
-Release  : 130
+Release  : 131
 URL      : https://ftp.osuosl.org/pub/cran/src/contrib/sf_1.0-19.tar.gz
 Source0  : https://ftp.osuosl.org/pub/cran/src/contrib/sf_1.0-19.tar.gz
 Summary  : Simple Features for R
